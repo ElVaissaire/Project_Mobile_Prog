@@ -1,15 +1,19 @@
 package com.example.project_mobile_prog.presentation.list
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import androidx.navigation.fragment.findNavController
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.project_mobile_prog.R
+import com.example.project_mobile_prog.presentation.api.GW2Api
+import retrofit2.Retrofit
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.converter.gson.GsonConverterFactory
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -37,13 +41,30 @@ class GW2ListFragment : Fragment() {
             adapter = this@GW2ListFragment.adapter
         }
 
-        val gw2List = arrayListOf<GW2>().apply{
-            add(GW2("Sylvari"))
-            add(GW2("Humain"))
-            add(GW2("Charr"))
-            add(GW2("Azura"))
-        }
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://api.guildwars2.com/v1/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
 
-        adapter.updateList(gw2List)
+        val GW2Api: GW2Api = retrofit.create(GW2Api::class.java)
+
+        //var i: Int = 0;
+        //while(i!=31) {
+            GW2Api.getItemList(28445).enqueue(object : Callback<GW2> {
+                override fun onFailure(call: Call<GW2>, t: Throwable) {
+                    //TODO("Not yet implemented")
+                }
+
+                override fun onResponse(call: Call<GW2>, response: Response<GW2>) {
+                    if (response.isSuccessful && response.body() != null) {
+                        val gw2Response = response.body()
+                        if (gw2Response != null) {
+                            adapter.addItemToList(gw2Response)
+                        }
+                    }
+                }
+            })
+         //   i++
+        //}
     }
 }

@@ -16,10 +16,12 @@ class GW2Adapter(private var dataSet: List<GW2>) :
      */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView
+        val idView: TextView
 
         init {
             // Define click listener for the ViewHolder's View.
             textView = view.findViewById(R.id.gw2_name)
+            idView = view.findViewById(R.id.gw2_id)
         }
     }
 
@@ -27,6 +29,12 @@ class GW2Adapter(private var dataSet: List<GW2>) :
         dataSet = list
         notifyDataSetChanged()
     }
+
+    fun addItemToList(item: GW2){
+        dataSet = dataSet + item
+        notifyDataSetChanged()
+    }
+
 
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
@@ -44,6 +52,7 @@ class GW2Adapter(private var dataSet: List<GW2>) :
         // contents of the view with that element
         val GW2 = dataSet[position]
         viewHolder.textView.text = GW2.name
+        viewHolder.idView.text = GW2.item_id.toString()
     }
 
     // Return the size of your dataset (invoked by the layout manager)
