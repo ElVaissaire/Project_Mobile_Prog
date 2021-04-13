@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.project_mobile_prog.R
@@ -21,7 +22,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 class GW2ListFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
-    private val adapter = GW2Adapter(listOf())
+    private val adapter = GW2Adapter(listOf(), ::onClickedGW2)
+
     private val layoutManager = LinearLayoutManager(context)
 
     override fun onCreateView(
@@ -48,23 +50,31 @@ class GW2ListFragment : Fragment() {
 
         val GW2Api: GW2Api = retrofit.create(GW2Api::class.java)
 
-        //var i: Int = 0;
-        //while(i!=31) {
-            GW2Api.getItemList(28445).enqueue(object : Callback<GW2> {
+        var i: Int = 1
+        val itemList: MutableList<GW2> = mutableListOf()
+        while(i!=100){ //API bizarre
+            GW2Api.getItemList(i).enqueue(object : Callback<GW2> {
                 override fun onFailure(call: Call<GW2>, t: Throwable) {
                     //TODO("Not yet implemented")
                 }
-
                 override fun onResponse(call: Call<GW2>, response: Response<GW2>) {
                     if (response.isSuccessful && response.body() != null) {
                         val gw2Response = response.body()
                         if (gw2Response != null) {
-                            adapter.addItemToList(gw2Response)
+                            itemList.add(gw2Response)
                         }
+                    }
+                    if(i==100){
+                        adapter.updateList(itemList)
                     }
                 }
             })
-         //   i++
-        //}
+
+           i++
+        }
+    }
+
+    private fun onClickedGW2(gW2: GW2) {
+        findNavController().navigate(R.id.navigateToGW2DetailFragment)
     }
 }

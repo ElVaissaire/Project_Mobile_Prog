@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.project_mobile_prog.R
 
-class GW2Adapter(private var dataSet: List<GW2>) :
+class GW2Adapter(private var dataSet: List<GW2>, val listener: ((GW2)->Unit)? = null) :
     RecyclerView.Adapter<GW2Adapter.ViewHolder>() {
 
     /**
@@ -22,6 +22,9 @@ class GW2Adapter(private var dataSet: List<GW2>) :
             // Define click listener for the ViewHolder's View.
             textView = view.findViewById(R.id.gw2_name)
             idView = view.findViewById(R.id.gw2_id)
+            textView.setOnClickListener {
+
+            }
         }
     }
 
@@ -53,6 +56,9 @@ class GW2Adapter(private var dataSet: List<GW2>) :
         val GW2 = dataSet[position]
         viewHolder.textView.text = GW2.name
         viewHolder.idView.text = GW2.item_id.toString()
+        viewHolder.itemView.setOnClickListener {
+            listener?.invoke(GW2)
+        }
     }
 
     // Return the size of your dataset (invoked by the layout manager)
