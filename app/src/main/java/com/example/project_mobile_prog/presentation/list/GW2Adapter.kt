@@ -22,9 +22,6 @@ class GW2Adapter(private var dataSet: List<GW2>, val listener: ((GW2)->Unit)? = 
             // Define click listener for the ViewHolder's View.
             textView = view.findViewById(R.id.gw2_name)
             idView = view.findViewById(R.id.gw2_id)
-            textView.setOnClickListener {
-
-            }
         }
     }
 
