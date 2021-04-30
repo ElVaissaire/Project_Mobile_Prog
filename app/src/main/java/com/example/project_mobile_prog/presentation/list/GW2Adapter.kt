@@ -50,11 +50,11 @@ class GW2Adapter(private var dataSet: List<GW2>, val listener: ((GW2)->Unit)? = 
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        val GW2 = dataSet[position]
-        viewHolder.textView.text = GW2.name
-        viewHolder.idView.text = GW2.item_id.toString()
+        val gw2 = dataSet[position]
+        viewHolder.textView.text = gw2.name
+        viewHolder.idView.text = gw2.item_id.toString()
         viewHolder.itemView.setOnClickListener {
-            listener?.invoke(GW2)
+            listener?.invoke(gw2)
         }
     }
 

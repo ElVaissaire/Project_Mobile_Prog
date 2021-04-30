@@ -1,5 +1,7 @@
 package com.example.project_mobile_prog.presentation.list
 
+import java.io.Serializable
+
 data class GW2(
         val name: String,
         val item_id: Int,
@@ -9,4 +11,4 @@ data class GW2(
         val rarity: String,
         val vendor_value: Int,
         val icon_file_id: Int
-)
+) : Serializable

@@ -9,7 +9,7 @@
         android:id="@+id/GW2ListFragment"
         android:name="com.example.project_mobile_prog.presentation.list.GW2ListFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/fragment_gw2_list">
 
         <action
             android:id="@+id/navigateToGW2DetailFragment"
@@ -17,12 +17,14 @@
     </fragment>
     <fragment
         android:id="@+id/GW2DetailFragment"
-        android:name="com.example.project_mobile_prog.SecondFragment"
+        android:name="com.example.project_mobile_prog.presentation.detail.GW2DetailFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
+        tools:layout="@layout/fragment_gw2_detail">
         <action
             android:id="@+id/navigateToGW2ListFragment"
             app:destination="@id/GW2ListFragment" />
+        <argument
+            android:name="gw2"
+            app:argType="com.example.project_mobile_prog.presentation.list.GW2" />
     </fragment>
 </navigation>
