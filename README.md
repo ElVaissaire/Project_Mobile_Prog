@@ -3,7 +3,7 @@
 Simple project that displays a list of the first fifty game items of Guild Wars 2 and their details.
 It uses the official API Rest Guild Wars 2.
 
-It displays the list via a RecyclerView and keep data in cache thanks to shared preferences.
+It displays the list via a RecyclerView and keeps data in cache, thanks to shared preferences.
 
 SCREENSHOTS :
 
