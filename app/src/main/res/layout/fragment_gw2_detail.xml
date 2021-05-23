@@ -13,34 +13,10 @@
         android:text="Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.828"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.261"
+        app:layout_constraintStart_toEndOf="@+id/gw2_detail_id"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.098" />
-
-    <TextView
-        android:id="@+id/gw2_detail_level"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="level"
-        app:layout_constraintBottom_toTopOf="@id/button_second"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.811"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.19" />
-
-    <TextView
-        android:id="@+id/gw2_detail_vendor_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="vendor value"
-        app:layout_constraintBottom_toTopOf="@id/button_second"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.552"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.26" />
 
     <TextView
         android:id="@+id/gw2_detail_rarity"
@@ -49,22 +25,10 @@
         android:text="rarity"
         app:layout_constraintBottom_toTopOf="@id/button_second"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.817"
+        app:layout_constraintHorizontal_bias="0.292"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.26" />
-
-    <TextView
-        android:id="@+id/gw2_detail_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="type"
-        app:layout_constraintBottom_toTopOf="@id/button_second"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.191" />
+        app:layout_constraintTop_toBottomOf="@+id/gw2_detail_level"
+        app:layout_constraintVertical_bias="0.026" />
 
     <TextView
         android:id="@+id/gw2_detail_icon_file_id"
@@ -73,22 +37,59 @@
         android:text="icon file id"
         app:layout_constraintBottom_toTopOf="@id/button_second"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintHorizontal_bias="0.319"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.422" />
+        app:layout_constraintTop_toBottomOf="@+id/gw2_detail_vendor_value"
+        app:layout_constraintVertical_bias="0.05" />
+
+    <TextView
+        android:id="@+id/gw2_detail_vendor_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="vendor value"
+        app:layout_constraintBottom_toTopOf="@id/button_second"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.335"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gw2_detail_rarity"
+        app:layout_constraintVertical_bias="0.037" />
+
+    <TextView
+        android:id="@+id/gw2_detail_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="level"
+        app:layout_constraintBottom_toTopOf="@id/button_second"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.29"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gw2_detail_type"
+        app:layout_constraintVertical_bias="0.03" />
+
+    <TextView
+        android:id="@+id/gw2_detail_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="272dp"
+        android:text="type"
+        app:layout_constraintBottom_toTopOf="@id/button_second"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.269"
+        app:layout_constraintTop_toBottomOf="@+id/gw2_detail_id"
+        app:layout_constraintVertical_bias="0.278" />
 
     <TextView
         android:id="@+id/gw2_detail_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:text="description"
-        app:layout_constraintBottom_toTopOf="@id/button_second"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintHorizontal_bias="0.325"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.343" />
+        app:layout_constraintTop_toBottomOf="@+id/gw2_detail_name"
+        app:layout_constraintVertical_bias="0.07" />
 
     <Button
         android:id="@+id/button_second"
@@ -107,8 +108,8 @@
         android:layout_height="wrap_content"
         android:text="ID"
         app:layout_constraintBottom_toTopOf="@id/button_second"
-        app:layout_constraintEnd_toStartOf="@+id/gw2_detail_name"
-        app:layout_constraintHorizontal_bias="0.616"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.291"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.122" />

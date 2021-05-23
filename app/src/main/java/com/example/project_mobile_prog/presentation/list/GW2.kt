@@ -3,12 +3,12 @@ package com.example.project_mobile_prog.presentation.list
 import java.io.Serializable
 
 data class GW2(
-        val name: String,
-        val item_id: Int,
-        val description: String,
-        val type: String,
-        val level: Int,
-        val rarity: String,
-        val vendor_value: Int,
-        val icon_file_id: Int
+        var name: String,
+        var item_id: Int,
+        var description: String,
+        var type: String,
+        var level: Int,
+        var rarity: String,
+        var vendor_value: Int,
+        var icon_file_id: Int
 ) : Serializable
