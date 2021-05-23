@@ -116,7 +116,7 @@ class GW2ListFragment : Fragment() {
         sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
 
         var i = 1
-        for (i in 1..30) {
+        for (i in 1..50) {
             val gw2: GW2 = GW2(
                     name = sharedPref!!.getString("name_key$i", " ").toString(),
                     item_id = sharedPref!!.getInt("item_id_key$i", 0),

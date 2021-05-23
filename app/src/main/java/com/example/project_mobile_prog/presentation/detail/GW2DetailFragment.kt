@@ -52,6 +52,7 @@ class GW2DetailFragment : Fragment() {
         textViewRarity.text = gw2.rarity
         textViewDescription.text = gw2.description
         textViewIconID.text = gw2.icon_file_id.toString()
+        textViewLevel.text = gw2.level.toString()
 
         view.findViewById<Button>(R.id.button_second).setOnClickListener {
             findNavController().navigate(R.id.navigateToGW2ListFragment)
